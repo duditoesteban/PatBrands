@@ -8,5 +8,13 @@
                 <argument name="logo_alt" xsi:type="string">Logo PatBrands</argument>
             </arguments>
         </referenceBlock>
+		<referenceBlock name="header.panel">
+            <block class="Magento\Framework\View\Element\Template" name="bloque.apertura" template="Magento_Theme::html/bloque-apertura.phtml" before="-"/>
+		</referenceBlock>
+		
+        <referenceContainer name="footer">
+            <block class="Magento\Theme\Block\Html\Footer" name="bloque-cierre" template="Magento_Theme::html/bloque-cierre.phtml" after="-" />
+        </referenceContainer>
+
     </body>
 </page>
