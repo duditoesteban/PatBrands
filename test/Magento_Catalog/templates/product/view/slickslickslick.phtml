@@ -72,8 +72,29 @@
                 autoplaySpeed:2000,
                 arrows:true
               });
-			  
+			 
 				$("#element").accordion();
+				
+				
+				jQuery(function ($) {
+    function changeColor(selector, colors, time) {
+        /* Params:
+         * selector: string,
+         * colors: array of color strings,
+         * every: integer (in mili-seconds)
+         */
+        var curCol = 0,
+            timer = setInterval(function () {
+                if (curCol === colors.length) curCol = 0;
+                $("body").css("background-color", colors[curCol]);
+                curCol++;
+            }, time);
+    }
+    $(window).load(function () {
+        changeColor(".catalog-product-view", ["#1999bb", "#8d527", "#cdb54b", "#49d6c8"], 3000);
+    });
+});
+				
         });
     });
 </script>
