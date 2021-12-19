@@ -71,9 +71,6 @@
 			.container-ficha{
 				margin-bottom:20px;
 				&.sliderpatbrands{
-				
-				
-				
 				/* Arrows */
 				.slick-prev,
 				.slick-next {
@@ -92,8 +89,20 @@
 				margin: @resetMargin;
 			}
 		}
-
 	}
-	
 }
 
+
+@max768: ~"(max-width: 768px)";
+h1,h2,h3,h4 {
+  @media @max768 {
+	color:red;
+  }
+}
+
+@max1200: ~"(max-width: 1200px)";
+h1,h2,h3,h4 {
+  @media @max1200 {
+	color:blue;
+  }
+}
