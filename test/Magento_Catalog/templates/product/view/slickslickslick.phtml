@@ -1,0 +1,81 @@
+
+
+<div id="accordion" class="acordeon" data-mage-init='{
+        "accordion":{
+            "active": [],
+            "collapsible": true,
+            "openedState": "active",
+            "multipleCollapsible": true
+        }}'>
+    <div data-role="collapsible" class="encabezado">
+        <div data-role="trigger">
+            <h2>Contenido Patbrands</h2>
+        </div>
+    </div>
+    <div data-role="content" class="content-acordeon">
+		<h3>Descripción corta</h3>
+		<div class="container-ficha">
+			<?= /* @noEscape */ $this->helper(Magento\Catalog\Helper\Output::class)->productAttribute(
+				$block->getProduct(),
+				$block->getProduct()->getShortDescription(),
+				'description'
+			) ?>
+			
+			<?= /* @noEscape */ $this->helper(Magento\Catalog\Helper\Output::class)->productAttribute(
+				$block->getProduct(),
+				$block->getProduct()->getEstaciones(),
+				'estaciones'
+			) ?>
+		</div>
+		
+		<h3>Atributo personalizado</h3>
+		<div class="container-ficha">	
+			<!-- TODO MOSTRAR ATTRUBUTO MULTISELECT CON LAS CUATRO ESTACIONES -->
+			Multiselect Estaciones
+		</div>
+		
+			<?php
+				$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+				$_product = $block->getProduct();
+			?>
+			
+
+		<h3>Slick PatBrands</h3>
+		<div class="container-ficha sliderpatbrands">
+			<ul class="regular">
+				<?php
+				$images = $_product->getMediaGalleryImages();
+				foreach($images as $child){ ?>
+					<li>
+						<img src="<?php echo $child->getUrl(); ?>" >
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+
+	
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    require(['jquery', 'slick','accordion'],function($){
+        jQuery(document).ready(function(){
+             jQuery('.regular').slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay:true,
+                autoplaySpeed:2000,
+                arrows:true
+              });
+			  
+				$("#element").accordion();
+        });
+    });
+</script>
+
+

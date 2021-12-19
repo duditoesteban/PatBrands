@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="slickslickslick" htmlTag="div" htmlClass="containergaleria" after="product.info.media">
+                <block class="Magento\Catalog\Block\Product\View" name="slickslickslick.bloque"  template="Magento_Catalog::product/view/slickslickslick.phtml" />
+            </container>
+        </referenceContainer>
+    </body>
+</page>

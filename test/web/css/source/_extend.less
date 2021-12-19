@@ -4,10 +4,10 @@
 @bgColorFooter: #66cbf1;
 @fontColor: #147;
 @lkColorPat: #fff;
-@fontFamily: Verdana, Geneva, sans-serif;
 @fontSizeBase: 14px;
-@paddingBase: 15px; 
-@1_texto: " probando";
+@paddingBase: 15px;
+@resetPadding: 0;
+@resetMargin: 0;
 
 .cierre,
 .apertura{
@@ -22,3 +22,78 @@
 }
 .apertura{background: @bgColorCabecera;}
 .cierre{background: @bgColorFooter;}
+
+
+
+/*FICHA PRODUCTO*/
+
+
+@import "_slick.less"; // library.less
+
+.containergaleria{
+	clear:both;
+	margin-bottom: 20px;
+	.acordeon{
+		width:100%;
+		.encabezado{
+			background:#d7d7d7;
+			padding: @paddingBase;
+			position: relative;
+			&:after{
+				content: "+";
+				position: absolute;
+				right: 20px;
+				font-size: 30px;
+				top: 5px;
+			}
+			&.active{
+				&:after{
+					content:"-"
+				}
+			}
+			h2{
+				width:100%;
+				padding: @resetPadding;
+				margin: @resetMargin;
+				font-size: 20px;
+				&:hover{
+					cursor:pointer;
+				}
+			}
+		}
+		
+		.content-acordeon{
+			border:1px solid #d7d7d7;
+			border-top: none;
+			padding: @paddingBase;
+			h3{
+			}
+			.container-ficha{
+				margin-bottom:20px;
+				&.sliderpatbrands{
+				
+				
+				
+				/* Arrows */
+				.slick-prev,
+				.slick-next {
+					position: absolute;
+					display: block;
+					cursor: pointer;
+					top: 50%;
+					z-index:1;
+					}
+					.slick-prev{left:0;}
+					.slick-next{right:0;}
+				}
+			}
+			ul,li{
+				padding: @resetPadding;
+				margin: @resetMargin;
+			}
+		}
+
+	}
+	
+}
+
