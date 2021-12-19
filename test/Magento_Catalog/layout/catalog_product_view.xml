@@ -10,8 +10,31 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <container name="slickslickslick" htmlTag="div" htmlClass="containergaleria" after="product.info.media">
+		
+		    <container name="slickslickslick" htmlTag="div" htmlClass="containergaleria" after="product.info.media">
                 <block class="Magento\Catalog\Block\Product\View" name="slickslickslick.bloque"  template="Magento_Catalog::product/view/slickslickslick.phtml" />
+            </container>
+            <container name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">
+                <container name="product.info.price" label="Product info auxiliary container" htmlTag="div" htmlClass="product-info-price">
+				
+            
+					<block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+                        <arguments>
+                            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                            <argument name="price_type_code" xsi:type="string">final_price</argument>
+                            <argument name="zone" xsi:type="string">item_view</argument>
+                        </arguments>
+						
+                    </block>
+					<block class="Magento\Catalog\Block\Product\View" name="product.promotion" template="Magento_Catalog::product/view/promotions.phtml" />
+                </container>
+                <block class="Magento\Catalog\Pricing\Render" name="product.price.tier" after="product.info.price">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">tier_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
     </body>

@@ -1,0 +1,37 @@
+<?php
+/**
+ * Product description template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+
+ *
+ */
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $variable = $objectManager->create('Magento\Variable\Model\Variable');
+    $store = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+    $storeManager = \Magento\Framework\App\ObjectManager::getInstance()->get('\Magento\Store\Model\StoreManagerInterface');
+    $_product = $block->getProduct();
+?>
+
+
+<div class="product-info-main-promotions">
+    <?php
+        $save_percent = null;
+            if ($_product->getSpecialPrice() != NULL && $final_price = $_product->getPrice() != NULL) {
+                $label_price = $_product->getPrice();
+                $final_price = $_product->getSpecialPrice();
+                $save_percent = 100 - round(($final_price / $label_price) * 100);
+            }
+        if($save_percent != NULL && $save_percent>3){
+            ?>
+            <div class="promo-bar bar-discount"><span>Ahorras un <?=round($save_percent)?>%</span></div>
+            <?php
+        }
+
+
+       
+  
+    ?>
+
+</div>
+
